@@ -1,12 +1,200 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <title>Mon Titre</title>
-    <link rel="stylesheet" href"style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Portfolio Mayron Dyeo v2</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Montserrat', sans-serif;
+      margin: 0;
+      display: flex;
+      min-height: 100vh;
+      background-color: #f5f7fa;
+      color: #2c3e50;
+    }
+
+    /* --- Sidebar --- */
+    .sidebar {
+      width: 260px;
+      background: linear-gradient(180deg, #2c3e50, #1a252f);
+      color: white;
+      padding: 20px;
+      box-sizing: border-box;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      position: fixed;
+      top: 0;
+      bottom: 0;
+      left: 0;
+    }
+    .profile img {
+      width: 120px;
+      height: 120px;
+      object-fit: cover;
+      border-radius: 50%;
+      border: 3px solid #1abc9c;
+      margin-bottom: 15px;
+    }
+    .profile h2 {
+      margin: 10px 0 5px;
+      font-size: 20px;
+    }
+    .profile p {
+      font-size: 14px;
+      color: #dcdcdc;
+      text-align: center;
+    }
+
+    /* --- Navigation --- */
+    nav ul {
+      list-style: none;
+      padding: 0;
+      margin-top: 30px;
+      width: 100%;
+    }
+    nav ul li {
+      margin: 15px 0;
+    }
+    nav ul li a {
+      color: white;
+      text-decoration: none;
+      font-weight: 600;
+      padding: 10px 15px;
+      display: block;
+      border-radius: 8px;
+      transition: background 0.3s, color 0.3s;
+    }
+    nav ul li a:hover {
+      background: #1abc9c;
+      color: white;
+    }
+
+    /* --- Main --- */
+    main {
+      margin-left: 260px;
+      flex-grow: 1;
+      padding: 40px;
+      box-sizing: border-box;
+    }
+    .section {
+      margin-bottom: 50px;
+      background: white;
+      padding: 25px;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+    .section h2 {
+      margin-top: 0;
+      border-left: 5px solid #1abc9c;
+      padding-left: 10px;
+      color: #2c3e50;
+    }
+
+    /* --- Contact links --- */
+    .contact a {
+      color: #1abc9c;
+      font-weight: bold;
+      text-decoration: none;
+    }
+    .contact a:hover {
+      text-decoration: underline;
+    }
+
+    /* --- Responsive --- */
+    @media (max-width: 768px) {
+      body {
+        flex-direction: column;
+      }
+      .sidebar {
+        position: relative;
+        width: 100%;
+        flex-direction: row;
+        justify-content: space-between;
+        padding: 15px;
+      }
+      .profile {
+        display: flex;
+        align-items: center;
+      }
+      .profile img {
+        width: 60px;
+        height: 60px;
+        margin-right: 10px;
+      }
+      nav ul {
+        display: flex;
+        margin: 0;
+      }
+      nav ul li {
+        margin: 0 10px;
+      }
+      main {
+        margin-left: 0;
+        padding: 20px;
+      }
+    }
+  </style>
 </head>
 <body>
-    <h1>Bienvenue sur ma page !</h1>
+ 
+  <header class="sidebar">
+    <div class="profile">
+      <img src="images/photo.jpg" alt="Portrait de Mayron Dyeo">
+      <div>
+        <h2>Mayron Dyeo</h2>
+        <p>Étudiant en BTS SIO - SLAM</p>
+      </div>
+    </div>
+    <nav>
+      <ul>
+        <li><a href="#accueil">🏠 Accueil</a></li>
+        <li><a href="#apropos">👨‍💻 À propos</a></li>
+        <li><a href="#parcours">🎓 Parcours</a></li>
+        <li><a href="#competences">💡 Compétences</a></li>
+        <li><a href="#projets">📂 Projets</a></li>
+        <li><a href="#contact">📩 Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+ 
+  <main>
+    <section id="accueil" class="section">
+      <h1>Bienvenue sur mon portfolio</h1>
+      <p>Je m’appelle <strong>Mayron Dyeo</strong> et voici un aperçu de mon parcours, mes projets et mes compétences.</p>
+    </section>
+
+    <section id="apropos" class="section">
+      <h2>À propos</h2>
+      <p>Passionné par le développement, je suis étudiant en BTS SIO SLAM et j’aime créer des applications modernes et sécurisées.</p>
+    </section>
+
+    <section id="parcours" class="section">
+      <h2>Mon parcours</h2>
+      <p>Ici tu pourras détailler ton parcours scolaire et professionnel.</p>
+    </section>
+
+    <section id="competences" class="section">
+      <h2>Mes compétences</h2>
+      <ul>
+        <li>⚙️ Programmation orientée objet (Java, Python)</li>
+        <li>🔒 Cybersécurité et bonnes pratiques</li>
+        <li>🤝 Travail en équipe </li>
+      </ul>
+    </section>
+
+    <section id="projets" class="section">
+      <h2>Mes projets</h2>
+      <p>Ici tu pourras mettre tes réalisations (sites, applications, scripts...).</p>
+    </section>
+
+    <section id="contact" class="section contact">
+      <h2>Contact</h2>
+      <p>📧 Email : <a href="mailto:dyeomayron@gmail.com">dyeomayron@gmail.com</a></p>
+      <p>📞 Téléphone : <a href="tel:+33894665">89 46 65</a></p>
+    </section>
+  </main>
 </body>
 </html>
-
