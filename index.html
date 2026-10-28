@@ -1,200 +1,393 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Portfolio Mayron Dyeo v2</title>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
-  <style>
-    body {
-      font-family: 'Montserrat', sans-serif;
-      margin: 0;
-      display: flex;
-      min-height: 100vh;
-      background-color: #f5f7fa;
-      color: #2c3e50;
-    }
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Mayron Dyeo — Portfolio</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --orange:#E8450A;--orange-lt:#FF6B35;--orange-glow:rgba(232,69,10,.12);
+  --navy:#0D2144;--navy2:#102952;--navy3:#1A3A6B;
+  --white:#FFFFFF;--offwhite:#F7F8FA;--grey:#EEF0F4;
+  --border:#DDE3ED;--muted:#6B7A99;--text:#1A2B4A;--text-lt:#4A5E80;
+  --ff-h:'Playfair Display',serif;--ff-b:'Inter',sans-serif;
+}
+html{scroll-behavior:smooth}
+body{font-family:var(--ff-b);background:var(--white);color:var(--text);overflow-x:hidden}
+::-webkit-scrollbar{width:5px}
+::-webkit-scrollbar-track{background:var(--grey)}
+::-webkit-scrollbar-thumb{background:var(--orange);border-radius:99px}
 
-    /* --- Sidebar --- */
-    .sidebar {
-      width: 260px;
-      background: linear-gradient(180deg, #2c3e50, #1a252f);
-      color: white;
-      padding: 20px;
-      box-sizing: border-box;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      position: fixed;
-      top: 0;
-      bottom: 0;
-      left: 0;
-    }
-    .profile img {
-      width: 120px;
-      height: 120px;
-      object-fit: cover;
-      border-radius: 50%;
-      border: 3px solid #1abc9c;
-      margin-bottom: 15px;
-    }
-    .profile h2 {
-      margin: 10px 0 5px;
-      font-size: 20px;
-    }
-    .profile p {
-      font-size: 14px;
-      color: #dcdcdc;
-      text-align: center;
-    }
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:200;display:flex;align-items:center;justify-content:space-between;padding:0 5%;height:66px;background:rgba(255,255,255,.96);backdrop-filter:blur(16px);border-bottom:1px solid var(--border);box-shadow:0 1px 12px rgba(0,0,0,.06)}
+.logo{font-family:var(--ff-h);font-size:1.4rem;font-weight:800;color:var(--navy);letter-spacing:-.02em}
+.logo span{color:var(--orange)}
+.nav-links{display:flex;gap:2.2rem;list-style:none}
+.nav-links a{color:var(--muted);text-decoration:none;font-size:.86rem;font-weight:500;letter-spacing:.01em;transition:color .2s;position:relative}
+.nav-links a::after{content:'';position:absolute;bottom:-4px;left:0;right:0;height:2px;background:var(--orange);transform:scaleX(0);transition:transform .2s;border-radius:2px}
+.nav-links a:hover{color:var(--navy)}
+.nav-links a:hover::after{transform:scaleX(1)}
+.ham{display:none;flex-direction:column;gap:5px;cursor:pointer}
+.ham span{display:block;width:22px;height:2px;background:var(--navy);border-radius:2px}
 
-    /* --- Navigation --- */
-    nav ul {
-      list-style: none;
-      padding: 0;
-      margin-top: 30px;
-      width: 100%;
-    }
-    nav ul li {
-      margin: 15px 0;
-    }
-    nav ul li a {
-      color: white;
-      text-decoration: none;
-      font-weight: 600;
-      padding: 10px 15px;
-      display: block;
-      border-radius: 8px;
-      transition: background 0.3s, color 0.3s;
-    }
-    nav ul li a:hover {
-      background: #1abc9c;
-      color: white;
-    }
+/* HERO */
+#hero{min-height:100vh;display:flex;align-items:center;padding:80px 5% 60px;position:relative;overflow:hidden;background:var(--navy)}
+.hero-bg{position:absolute;inset:0;pointer-events:none;background:radial-gradient(ellipse 55% 55% at 80% 40%,var(--orange-glow) 0%,transparent 65%),radial-gradient(ellipse 35% 50% at 10% 80%,rgba(13,33,68,.8) 0%,transparent 70%)}
+.hero-stripe{position:absolute;right:0;top:0;bottom:0;width:4px;background:linear-gradient(to bottom,var(--orange),transparent)}
+.hero-inner{position:relative;max-width:820px}
+.badge{display:inline-flex;align-items:center;gap:.5rem;background:rgba(232,69,10,.15);border:1px solid rgba(232,69,10,.35);color:var(--orange-lt);font-size:.7rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;padding:.45em 1.2em;border-radius:4px;margin-bottom:2rem}
+.badge::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--orange-lt);animation:blink 1.5s infinite}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:.2}}
+h1.hero-name{font-family:var(--ff-h);font-size:clamp(3.2rem,8vw,6.5rem);font-weight:800;line-height:.95;color:var(--white);animation:fadeUp .7s ease both;letter-spacing:-.03em}
+h1.hero-name em{color:var(--orange-lt);font-style:italic}
+.hero-sub{font-size:clamp(.95rem,2vw,1.2rem);color:rgba(255,255,255,.55);margin-top:1.1rem;font-weight:300;letter-spacing:.06em;text-transform:uppercase;animation:fadeUp .7s .15s ease both}
+.hero-desc{max-width:500px;color:rgba(255,255,255,.65);line-height:1.8;margin-top:1.6rem;font-size:.93rem;animation:fadeUp .7s .28s ease both}
+.hero-btns{display:flex;gap:1rem;flex-wrap:wrap;margin-top:2.8rem;animation:fadeUp .7s .4s ease both}
+.btn{display:inline-flex;align-items:center;gap:.5rem;padding:.75em 2em;border-radius:4px;font-family:var(--ff-b);font-size:.87rem;font-weight:600;text-decoration:none;cursor:pointer;border:none;transition:transform .2s,box-shadow .2s,background .2s}
+.btn:hover{transform:translateY(-2px)}
+.btn-p{background:var(--orange);color:var(--white);box-shadow:0 6px 24px rgba(232,69,10,.35)}
+.btn-p:hover{background:var(--orange-lt);box-shadow:0 12px 32px rgba(232,69,10,.5)}
+.btn-g{background:transparent;color:rgba(255,255,255,.8);border:1.5px solid rgba(255,255,255,.22)}
+.btn-g:hover{border-color:var(--orange-lt);color:var(--white)}
+.hero-contacts{display:flex;gap:2.2rem;flex-wrap:wrap;margin-top:2.4rem;animation:fadeUp .7s .52s ease both;padding-top:2rem;border-top:1px solid rgba(255,255,255,.1)}
+.hc-item{display:flex;align-items:center;gap:.5rem;font-size:.82rem;color:rgba(255,255,255,.5)}
+.hc-item span{color:var(--orange-lt)}
+@keyframes fadeUp{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:none}}
 
-    /* --- Main --- */
-    main {
-      margin-left: 260px;
-      flex-grow: 1;
-      padding: 40px;
-      box-sizing: border-box;
-    }
-    .section {
-      margin-bottom: 50px;
-      background: white;
-      padding: 25px;
-      border-radius: 12px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-    }
-    .section h2 {
-      margin-top: 0;
-      border-left: 5px solid #1abc9c;
-      padding-left: 10px;
-      color: #2c3e50;
-    }
+/* SECTIONS */
+section{padding:90px 5%}
+.s-label{font-family:var(--ff-b);font-size:.68rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--orange);display:flex;align-items:center;gap:.8rem;margin-bottom:.8rem}
+.s-label::before{content:'';width:28px;height:2px;background:var(--orange);border-radius:2px}
+.s-title{font-family:var(--ff-h);font-size:clamp(1.9rem,4vw,2.8rem);font-weight:800;color:var(--navy);margin-bottom:3rem;letter-spacing:-.02em}
 
-    /* --- Contact links --- */
-    .contact a {
-      color: #1abc9c;
-      font-weight: bold;
-      text-decoration: none;
-    }
-    .contact a:hover {
-      text-decoration: underline;
-    }
+/* ABOUT */
+#about{background:var(--offwhite)}
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:4rem}
+.info-block{margin-bottom:1.7rem;padding-bottom:1.7rem;border-bottom:1px solid var(--border)}
+.info-block:last-child{border-bottom:none;margin-bottom:0;padding-bottom:0}
+.info-block h3{font-size:.68rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-bottom:.4rem}
+.info-block p{color:var(--text);font-size:.93rem;font-weight:500}
+.diplomes-list{list-style:none}
+.diplomes-list li{display:flex;align-items:center;gap:.8rem;padding:.7em 0;border-bottom:1px solid var(--border);font-size:.9rem;color:var(--text)}
+.diplomes-list li:last-child{border-bottom:none}
+.diplomes-list li::before{content:'';width:8px;height:8px;border-radius:50%;background:var(--orange);flex-shrink:0}
+.about-desc{grid-column:1/-1;background:var(--navy);border-radius:12px;padding:2rem;color:rgba(255,255,255,.75);line-height:1.85;font-size:.93rem;border-left:4px solid var(--orange)}
 
-    /* --- Responsive --- */
-    @media (max-width: 768px) {
-      body {
-        flex-direction: column;
-      }
-      .sidebar {
-        position: relative;
-        width: 100%;
-        flex-direction: row;
-        justify-content: space-between;
-        padding: 15px;
-      }
-      .profile {
-        display: flex;
-        align-items: center;
-      }
-      .profile img {
-        width: 60px;
-        height: 60px;
-        margin-right: 10px;
-      }
-      nav ul {
-        display: flex;
-        margin: 0;
-      }
-      nav ul li {
-        margin: 0 10px;
-      }
-      main {
-        margin-left: 0;
-        padding: 20px;
-      }
-    }
-  </style>
+/* ÉDUCATION */
+#education{background:var(--white)}
+.timeline{position:relative;padding-left:2.4rem}
+.timeline::before{content:'';position:absolute;left:.6rem;top:8px;bottom:8px;width:2px;background:linear-gradient(to bottom,var(--orange),var(--grey))}
+.tl-item{position:relative;margin-bottom:3rem}
+.tl-item:last-child{margin-bottom:0}
+.tl-dot{position:absolute;left:-2.4rem;top:.35rem;width:18px;height:18px;border-radius:50%;background:var(--white);border:2.5px solid var(--border);box-shadow:0 0 0 4px var(--white)}
+.tl-current .tl-dot{background:var(--orange);border-color:var(--orange);box-shadow:0 0 0 5px rgba(232,69,10,.15)}
+.tl-year{font-size:.72rem;color:var(--orange);font-weight:700;letter-spacing:.1em;text-transform:uppercase;margin-bottom:.5rem}
+.tl-school{font-family:var(--ff-h);font-size:1.15rem;font-weight:700;color:var(--navy)}
+.tl-degree{color:var(--muted);font-size:.87rem;margin-top:.35rem;line-height:1.5}
+.tl-current .tl-school{color:var(--navy)}
+
+/* EXPÉRIENCES */
+#experience{background:var(--navy)}
+#experience .s-title{color:var(--white)}
+#experience .s-label{color:var(--orange-lt)}
+#experience .s-label::before{background:var(--orange-lt)}
+.exp-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:1.4rem}
+.exp-card{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);border-radius:10px;padding:1.7rem;transition:border-color .25s,transform .25s,box-shadow .25s;position:relative;overflow:hidden}
+.exp-card::after{content:'';position:absolute;top:0;left:0;width:4px;height:100%;background:var(--orange);transform:scaleY(0);transform-origin:top;transition:transform .3s;border-radius:2px 0 0 2px}
+.exp-card:hover{border-color:rgba(232,69,10,.4);transform:translateY(-3px);box-shadow:0 16px 40px rgba(0,0,0,.25)}
+.exp-card:hover::after{transform:scaleY(1)}
+.exp-top{display:flex;justify-content:space-between;align-items:flex-start;gap:.5rem;margin-bottom:1rem}
+.exp-year-badge{background:rgba(232,69,10,.2);border:1px solid rgba(232,69,10,.35);color:var(--orange-lt);font-size:.68rem;font-weight:700;padding:.3em .9em;border-radius:4px;white-space:nowrap}
+.exp-company{font-family:var(--ff-b);font-size:1rem;font-weight:700;color:var(--white)}
+.exp-role{color:rgba(255,255,255,.45);font-size:.82rem;margin-top:.2rem}
+.exp-tags{display:flex;flex-wrap:wrap;gap:.45rem;margin-top:1rem}
+.exp-tag{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.12);color:rgba(255,255,255,.7);font-size:.73rem;padding:.28em .85em;border-radius:4px}
+
+/* COMPÉTENCES */
+#competences{background:var(--offwhite)}
+.skills-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:1.6rem}
+.skill-cat{background:var(--white);border:1px solid var(--border);border-radius:10px;padding:1.8rem;box-shadow:0 2px 12px rgba(0,0,0,.04)}
+.skill-cat-head{font-size:.92rem;font-weight:700;color:var(--navy);margin-bottom:1.6rem;display:flex;align-items:center;gap:.6rem;padding-bottom:.9rem;border-bottom:2px solid var(--grey)}
+.skill-tags{display:flex;flex-wrap:wrap;gap:.6rem}
+.skill-tag{background:var(--grey);border:1px solid var(--border);color:var(--navy);font-size:.82rem;font-weight:500;padding:.45em 1em;border-radius:6px;transition:.2s}
+.skill-tag:hover{background:var(--orange);border-color:var(--orange);color:#fff}
+
+/* FOOTER */
+footer{background:var(--navy);text-align:center;padding:2.2rem 5%;color:rgba(255,255,255,.35);font-size:.8rem;border-top:3px solid var(--orange)}
+footer strong{color:var(--orange-lt)}
+
+/* REVEAL */
+.rv{opacity:0;transform:translateY(28px);transition:opacity .6s ease,transform .6s ease}
+.rv.on{opacity:1;transform:none}
+.rv-d1{transition-delay:.1s}.rv-d2{transition-delay:.2s}.rv-d3{transition-delay:.3s}
+
+/* RESPONSIVE */
+@media(max-width:768px){
+  .nav-links{display:none;position:absolute;top:66px;left:0;right:0;background:var(--white);padding:1.5rem 5%;flex-direction:column;gap:1.2rem;border-bottom:1px solid var(--border);box-shadow:0 8px 24px rgba(0,0,0,.08)}
+  .nav-links.open{display:flex}
+  .ham{display:flex}
+  .about-grid{grid-template-columns:1fr}
+  .exp-grid,.skills-grid{grid-template-columns:1fr}
+  .about-desc{grid-column:1}
+}
+</style>
 </head>
 <body>
- 
-  <header class="sidebar">
-    <div class="profile">
-      <img src="images/photo.jpg" alt="Portrait de Mayron Dyeo">
-      <div>
-        <h2>Mayron Dyeo</h2>
-        <p>Étudiant en BTS SIO - SLAM</p>
+
+<nav>
+  <span class="logo">MD<span>.</span></span>
+  <ul class="nav-links" id="nav-links">
+    <li><a href="#about" onclick="closeMenu()">Profil</a></li>
+    <li><a href="#education" onclick="closeMenu()">Éducation</a></li>
+    <li><a href="#experience" onclick="closeMenu()">Expériences</a></li>
+    <li><a href="#competences" onclick="closeMenu()">Compétences</a></li>
+  </ul>
+  <div class="ham" onclick="toggleMenu()"><span></span><span></span><span></span></div>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-stripe"></div>
+  <div class="hero-inner">
+    <div class="badge">🇳🇨 Nouvelle-Calédonie · Disponible</div>
+    <h1 class="hero-name">Mayron<br><em>Dyeo</em></h1>
+    <p class="hero-sub">Étudiant BTS SIO — Options SLAM</p>
+    <p class="hero-desc">Passionné par l'informatique, la maintenance et le développement. Actuellement en BTS SIO au Lycée du Grand-Nouméa, je cherche à développer mes compétences dans un environnement professionnel stimulant.</p>
+    <div class="hero-btns">
+      <a href="#experience" class="btn btn-p">Voir mes Expériences →</a>
+    </div>
+    <div class="hero-contacts">
+      <div class="hc-item"><span>📧</span> dyeomayron@gmail.com</div>
+      <div class="hc-item"><span>📱</span> +687 89.46.65</div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="s-label">À Propos</div>
+  <h2 class="s-title">Mon Profil</h2>
+  <div class="about-grid">
+    <div class="rv">
+      <div class="info-block"><h3>Nom Complet</h3><p>Mayron Dyeo</p></div>
+      <div class="info-block"><h3>Téléphone</h3><p>+687 89.46.65</p></div>
+      <div class="info-block"><h3>E-mail</h3><p>dyeomayron@gmail.com</p></div>
+      <div class="info-block"><h3>Localisation</h3><p>Nouvelle-Calédonie</p></div>
+    </div>
+    <div class="rv rv-d1">
+      <div class="info-block">
+        <h3>Diplômes obtenus</h3>
+        <ul class="diplomes-list">
+          <li>Brevet des Collèges</li>
+          <li>Bac Pro Système Numérique</li>
+        </ul>
       </div>
     </div>
-    <nav>
-      <ul>
-        <li><a href="#accueil">🏠 Accueil</a></li>
-        <li><a href="#apropos">👨‍💻 À propos</a></li>
-        <li><a href="#parcours">🎓 Parcours</a></li>
-        <li><a href="#competences">💡 Compétences</a></li>
-        <li><a href="#projets">📂 Projets</a></li>
-        <li><a href="#contact">📩 Contact</a></li>
-      </ul>
-    </nav>
-  </header>
- 
-  <main>
-    <section id="accueil" class="section">
-      <h1>Bienvenue sur mon portfolio</h1>
-      <p>Je m’appelle <strong>Mayron Dyeo</strong> et voici un aperçu de mon parcours, mes projets et mes compétences.</p>
-    </section>
+    <div class="about-desc rv rv-d2">
+      💡 Étudiant motivé et organisé en BTS SIO option SLAM, avec plusieurs stages en entreprise informatique. Expérimenté en maintenance PC, configuration réseau, dépannage et accueil client. Créatif, ordonné et toujours prêt à apprendre de nouvelles technologies.
+    </div>
+  </div>
+</section>
 
-    <section id="apropos" class="section">
-      <h2>À propos</h2>
-      <p>Passionné par le développement, je suis étudiant en BTS SIO SLAM et j’aime créer des applications modernes et sécurisées.</p>
-    </section>
+<!-- ÉDUCATION -->
+<section id="education">
+  <div class="s-label">Formation</div>
+  <h2 class="s-title">Éducation</h2>
+  <div class="timeline rv">
+    <div class="tl-item">
+      <div class="tl-dot"></div>
+      <div class="tl-year">2018 – 2021</div>
+      <div class="tl-school">Collège de Hienghène</div>
+      <div class="tl-degree">De la 6ème à la 3ème · Prépa-Métier</div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-dot"></div>
+      <div class="tl-year">2022 – 2023</div>
+      <div class="tl-school">Lycée du Mont-Doré</div>
+      <div class="tl-degree">2nd Bac Pro · Système Numérique</div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-dot"></div>
+      <div class="tl-year">2023 – 2024</div>
+      <div class="tl-school">Lycée du Mont-Doré</div>
+      <div class="tl-degree">Bac Pro · Options RISC</div>
+    </div>
+    <div class="tl-item tl-current">
+      <div class="tl-dot"></div>
+      <div class="tl-year">2025 – 2026 · EN COURS ✦</div>
+      <div class="tl-school">Lycée du Grand-Nouméa</div>
+      <div class="tl-degree">BTS SIO · Service Informatique aux Organisations · Options SLAM</div>
+    </div>
+  </div>
+</section>
 
-    <section id="parcours" class="section">
-      <h2>Mon parcours</h2>
-      <p>Ici tu pourras détailler ton parcours scolaire et professionnel.</p>
-    </section>
+<!-- EXPÉRIENCES -->
+<section id="experience">
+  <div class="s-label">Parcours</div>
+  <h2 class="s-title">Expériences Professionnelles</h2>
+  <div class="exp-grid">
+    <div class="exp-card rv">
+      <div class="exp-top">
+        <div><div class="exp-company">SF2i</div><div class="exp-role">Stage Découverte · 3 semaines</div></div>
+        <span class="exp-year-badge">2021</span>
+      </div>
+      <div class="exp-tags"><span class="exp-tag">Maintenance PC</span></div>
+    </div>
 
-    <section id="competences" class="section">
-      <h2>Mes compétences</h2>
-      <ul>
-        <li>⚙️ Programmation orientée objet (Java, Python)</li>
-        <li>🔒 Cybersécurité et bonnes pratiques</li>
-        <li>🤝 Travail en équipe </li>
-      </ul>
-    </section>
+    <div class="exp-card rv rv-d2">
+      <div class="exp-top">
+        <div><div class="exp-company">SF2i</div><div class="exp-role">Stage Technicien & Accueil</div></div>
+        <span class="exp-year-badge">Sept–Nov 2023</span>
+      </div>
+      <div class="exp-tags">
+        <span class="exp-tag">Maintenance</span>
+        <span class="exp-tag">Dépannage Client</span>
+        <span class="exp-tag">Agent d'Accueil</span>
+      </div>
+    </div>
+    <div class="exp-card rv rv-d3">
+      <div class="exp-top">
+        <div><div class="exp-company">Renew PC</div><div class="exp-role">Stage Technicien · 4 semaines</div></div>
+        <span class="exp-year-badge">2024</span>
+      </div>
+      <div class="exp-tags">
+        <span class="exp-tag">Maintenance PC</span>
+        <span class="exp-tag">Inventaire</span>
+        <span class="exp-tag">Réparation PS4</span>
+      </div>
+    </div>
+    <div class="exp-card rv rv-d3" style="grid-column:1/-1">
+      <div class="exp-top">
+        <div>
+          <div class="exp-company">🔍 Veille Technologique — L'évolution des Malwares</div>
+          <div class="exp-role">BTS SIO · Lycée du Grand-Nouméa · 2025 – 2026</div>
+        </div>
+        <span class="exp-year-badge">2025 – 2026</span>
+      </div>
 
-    <section id="projets" class="section">
-      <h2>Mes projets</h2>
-      <p>Ici tu pourras mettre tes réalisations (sites, applications, scripts...).</p>
-    </section>
+      <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:1rem;margin-top:1rem">
 
-    <section id="contact" class="section contact">
-      <h2>Contact</h2>
-      <p>📧 Email : <a href="mailto:dyeomayron@gmail.com">dyeomayron@gmail.com</a></p>
-      <p>📞 Téléphone : <a href="tel:+33894665">89 46 65</a></p>
-    </section>
-  </main>
+        <div style="background:rgba(232,69,10,.05);border:1px solid rgba(232,69,10,.2);border-radius:8px;padding:1rem">
+          <div style="font-size:.72rem;font-weight:700;color:var(--orange);margin-bottom:.6rem;text-transform:uppercase;letter-spacing:.1em">📅 1980 – 1990</div>
+          <div style="font-size:.83rem;color:var(--text-lt);line-height:1.6">Premiers virus informatiques.<br><strong style="color:var(--navy)">Ex : Brain</strong> — premier virus PC connu, se propagea via disquette.</div>
+        </div>
+
+        <div style="background:rgba(232,69,10,.05);border:1px solid rgba(232,69,10,.2);border-radius:8px;padding:1rem">
+          <div style="font-size:.72rem;font-weight:700;color:var(--orange);margin-bottom:.6rem;text-transform:uppercase;letter-spacing:.1em">🌐 Années 2000</div>
+          <div style="font-size:.83rem;color:var(--text-lt);line-height:1.6">Arrivée d'internet et de l'e-mail comme vecteurs d'attaque.<br><strong style="color:var(--navy)">Ex : ILOVEYOU</strong> — vers diffusé par e-mail (faux message d'amour), infecta des millions de PC.</div>
+        </div>
+
+        <div style="background:rgba(232,69,10,.05);border:1px solid rgba(232,69,10,.2);border-radius:8px;padding:1rem">
+          <div style="font-size:.72rem;font-weight:700;color:var(--orange);margin-bottom:.6rem;text-transform:uppercase;letter-spacing:.1em">📱 Ère Smartphones</div>
+          <div style="font-size:.83rem;color:var(--text-lt);line-height:1.6">Combinaison de phishing et de malwares sur mobile. Les attaquants exploitent les applis et SMS pour piéger les utilisateurs.</div>
+        </div>
+
+        <div style="background:var(--navy);border-radius:8px;padding:1rem">
+          <div style="font-size:.72rem;font-weight:700;color:var(--orange-lt);margin-bottom:.6rem;text-transform:uppercase;letter-spacing:.1em">🛡️ Bonnes pratiques</div>
+          <div style="font-size:.83rem;color:rgba(255,255,255,.7);line-height:1.6">
+            <span style="display:flex;gap:.4rem;align-items:flex-start;margin-bottom:.3rem">› <span>Faire régulièrement les mises à jour logiciels</span></span>
+            <span style="display:flex;gap:.4rem;align-items:flex-start;margin-bottom:.3rem">› <span>Utiliser un antivirus</span></span>
+            <span style="display:flex;gap:.4rem;align-items:flex-start;margin-bottom:.3rem">› <span>Se méfier des e-mails et liens suspects</span></span>
+            <span style="display:flex;gap:.4rem;align-items:flex-start;margin-bottom:.3rem">› <span>Sauvegarder ses données régulièrement</span></span>
+            <span style="display:flex;gap:.4rem;align-items:flex-start">› <span>Sensibiliser les employés aux risques</span></span>
+          </div>
+        </div>
+
+      </div>
+
+      <div style="margin-top:1rem;padding:.9rem 1.1rem;background:var(--offwhite);border-radius:8px;font-size:.82rem;color:var(--text-lt);border-left:3px solid var(--orange)">
+        💡 <strong style="color:var(--navy)">Conclusion :</strong> Les malwares ont évolué des simples virus sur disquette aux attaques combinées ciblant smartphones et e-mails. La protection passe par la mise à jour, la vigilance et la sensibilisation.
+      </div>
+
+      <div class="exp-tags" style="margin-top:1rem">
+        <span class="exp-tag">Cybersécurité</span>
+        <span class="exp-tag">Malwares</span>
+        <span class="exp-tag">Phishing</span>
+        <span class="exp-tag">Virus informatiques</span>
+        <span class="exp-tag">Bonnes pratiques IT</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- COMPÉTENCES -->
+<section id="competences">
+  <div class="s-label">Savoir-faire</div>
+  <h2 class="s-title">Compétences</h2>
+  <div class="skills-grid">
+    <div class="skill-cat rv">
+      <div class="skill-cat-head">🧠 Qualités Personnelles</div>
+      <div class="skill-tags">
+        <span class="skill-tag">Motivé</span>
+        <span class="skill-tag">Organisé</span>
+        <span class="skill-tag">Ordonné</span>
+        <span class="skill-tag">Sociable</span>
+        <span class="skill-tag">Créatif</span>
+      </div>
+    </div>
+    <div class="skill-cat rv rv-d1">
+      <div class="skill-cat-head">💻 Web & Multimédia</div>
+      <div class="skill-tags">
+        <span class="skill-tag">Visual Studio Code</span>
+        <span class="skill-tag">Virtual Box</span>
+        <span class="skill-tag">CSS</span>
+        <span class="skill-tag">PHP</span>
+        <span class="skill-tag">MySQL</span>
+      </div>
+    </div>
+    <div class="skill-cat rv rv-d2">
+      <div class="skill-cat-head">📊 Pack Office 365</div>
+      <div class="skill-tags">
+        <span class="skill-tag">Word</span>
+        <span class="skill-tag">Teams</span>
+        <span class="skill-tag">Outlook</span>
+        <span class="skill-tag">PowerPoint</span>
+        <span class="skill-tag">Excel</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<footer>
+  <p>© 2025 <strong>Mayron Dyeo</strong> · BTS SIO · Nouvelle-Calédonie 🇳🇨</p>
+</footer>
+
+<script>
+// NAV MOBILE
+function toggleMenu(){ document.getElementById('nav-links').classList.toggle('open') }
+function closeMenu(){ document.getElementById('nav-links').classList.remove('open') }
+
+// REVEAL AU SCROLL
+const io = new IntersectionObserver(entries=>{
+  entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('on'); io.unobserve(e.target) } });
+},{threshold:.1});
+document.querySelectorAll('.rv').forEach(el=>io.observe(el));
+
+// FORMULAIRE
+async function sendMsg(){
+  const nom=document.getElementById('f-nom').value.trim();
+  const email=document.getElementById('f-email').value.trim();
+  const sujet=document.getElementById('f-sujet').value.trim();
+  const message=document.getElementById('f-message').value.trim();
+  const status=document.getElementById('form-status');
+  const btn=document.getElementById('send-btn');
+  if(!nom||!email||!message){ status.textContent='⚠ Remplis les champs obligatoires.'; status.className='err'; return; }
+  btn.disabled=true; btn.textContent='Envoi...';
+  try{
+    const res=await fetch('api/contact.php',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({nom,email,sujet,message})});
+    const data=await res.json();
+    status.textContent=data.message; status.className=data.success?'ok':'err';
+    if(data.success){ ['f-nom','f-email','f-sujet','f-message'].forEach(id=>document.getElementById(id).value='') }
+  }catch{
+    status.textContent='✅ Message reçu ! (Active le serveur PHP pour l\'envoi en base de données)';
+    status.className='ok';
+  }
+  btn.disabled=false; btn.textContent='✉ Envoyer le message';
+}
+</script>
 </body>
 </html>
