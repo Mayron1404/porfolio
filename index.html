@@ -114,6 +114,74 @@ section{padding:90px 5%}
 .skill-tag{background:var(--grey);border:1px solid var(--border);color:var(--navy);font-size:.82rem;font-weight:500;padding:.45em 1em;border-radius:6px;transition:.2s}
 .skill-tag:hover{background:var(--orange);border-color:var(--orange);color:#fff}
 
+
+/* PROJETS */
+#projets{background:var(--white)}
+.proj{display:grid;grid-template-columns:1.1fr 1fr;gap:3rem;align-items:center}
+.proj-badge{display:inline-block;background:var(--orange-glow);border:1px solid rgba(232,69,10,.3);color:var(--orange);font-size:.68rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;padding:.35em 1em;border-radius:4px;margin-bottom:1rem}
+.proj-title{font-family:var(--ff-h);font-size:1.6rem;font-weight:800;color:var(--navy);margin-bottom:1rem}
+.proj-text{color:var(--text-lt);font-size:.93rem;line-height:1.8;margin-bottom:1.2rem}
+.proj-feats{list-style:none;display:grid;grid-template-columns:1fr 1fr;gap:.7rem;margin-bottom:1.4rem}
+.proj-feats li{background:var(--offwhite);border:1px solid var(--border);border-radius:8px;padding:.7em 1em;font-size:.85rem;color:var(--text);font-weight:500}
+.mock{border-radius:12px;overflow:hidden;border:1px solid var(--border);box-shadow:0 20px 50px rgba(13,33,68,.18);background:#fff}
+.mock-bar{display:flex;gap:6px;align-items:center;padding:.6rem .9rem;background:var(--grey);border-bottom:1px solid var(--border)}
+.mock-bar i{width:10px;height:10px;border-radius:50%;background:#ccd3e0;display:block}
+.mock-bar span{margin-left:.6rem;font-size:.68rem;color:var(--muted)}
+.mock-screen{position:relative;padding:1.2rem 1.2rem 0;min-height:340px;display:flex;flex-direction:column;align-items:center;background:linear-gradient(180deg,rgba(255,244,214,.85),rgba(190,215,160,.75) 55%,rgba(150,170,130,.8)),#cfe0b8}
+.mock-logo{align-self:flex-start;background:#b9b3dc;border-radius:8px;padding:.45rem .8rem;line-height:1.1;text-align:center;box-shadow:0 2px 8px rgba(0,0,0,.15)}
+.mock-logo b{display:block;font-family:var(--ff-h);font-size:.95rem;color:#fff;text-shadow:0 1px 2px rgba(0,0,0,.4)}
+.mock-logo small{font-size:.55rem;color:#2a2a5a;font-weight:600}
+.mock-search{display:flex;align-items:center;gap:.6rem;width:92%;margin-top:1.1rem;background:rgba(255,255,255,.75);border-radius:14px;padding:.55rem .7rem .55rem 1rem;font-size:.75rem;color:#777}
+.mock-search em{flex:1;font-style:normal}
+.mock-search u{text-decoration:none;background:#f6d92b;color:#222;font-weight:600;padding:.4em 1em;border-radius:99px}
+.mock-cat-title{align-self:flex-start;margin:1.6rem 0 .7rem 4%;font-size:.72rem;font-weight:700;color:#222}
+.mock-cats{display:grid;grid-template-columns:repeat(4,1fr);gap:.7rem;width:92%}
+.mock-cat{aspect-ratio:1/.95;border-radius:12px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.35rem;color:#fff;font-size:.7rem;font-weight:600;box-shadow:0 4px 10px rgba(0,0,0,.2)}
+.mock-cat span{font-size:1.5rem}
+.mock-cat.c1{background:#2a2a9a}.mock-cat.c2{background:#2fae6a}.mock-cat.c3{background:#d8c93a;color:#2b2b2b}.mock-cat.c4{background:#e5545a}
+.mock-slogan{width:100%;margin-top:auto;padding:.8rem 1rem;text-align:center;background:rgba(255,255,255,.7);font-family:var(--ff-h);font-size:.85rem;color:#222}
+
+
+.proj+.proj{margin-top:5rem;padding-top:4rem;border-top:1px solid var(--border)}
+.proj.rev{grid-template-columns:1fr 1.1fr}
+.proj.rev .proj-info{order:2}
+.badge-wip{background:rgba(31,182,200,.12);border-color:rgba(31,182,200,.4);color:#0e8a9b}
+.mock-tour{position:relative;min-height:340px;padding:0 1.2rem 1.4rem;color:#fff;background:radial-gradient(ellipse 80% 70% at 85% 25%,#0b4a68 0%,transparent 70%),linear-gradient(180deg,#05202f,#030d16)}
+.mt-nav{display:flex;align-items:center;justify-content:space-between;gap:.6rem;padding:.8rem 0;font-size:.6rem;font-weight:500;color:rgba(255,255,255,.85)}
+.mt-logo{background:#fff;color:#1c7fb5;font-weight:800;font-size:.7rem;padding:.25em .6em;border-radius:3px;line-height:1}
+.mt-links{display:flex;gap:.9rem}
+.mt-auth{display:flex;gap:.4rem}
+.mt-auth span{padding:.4em .9em;border-radius:99px;border:1px solid rgba(255,255,255,.3)}
+.mt-auth span:last-child{background:linear-gradient(90deg,#1fb6c8,#0e86a8);border-color:transparent;font-weight:700}
+.mt-pill{display:inline-block;margin-top:1.4rem;font-size:.5rem;letter-spacing:.14em;color:#38d0d8;border:1px solid rgba(255,255,255,.15);background:rgba(255,255,255,.05);padding:.4em 1em;border-radius:99px}
+.mt-h{font-family:var(--ff-h);font-weight:700;font-size:2.1rem;line-height:1.02;margin-top:.9rem;color:#dff4f6}
+.mt-h b{background:linear-gradient(90deg,#38d0d8,#b3a85a);-webkit-background-clip:text;background-clip:text;color:transparent}
+.mt-h i{display:block;font-weight:400;color:#eef2f4}
+.mt-p{max-width:75%;margin-top:.9rem;font-size:.62rem;line-height:1.6;color:rgba(255,255,255,.65)}
+.mt-btns{display:flex;gap:.6rem;margin-top:1.1rem;font-size:.62rem;font-weight:600}
+.mt-btns span{padding:.65em 1.4em;border-radius:99px;border:1px solid rgba(255,255,255,.3)}
+.mt-btns span:first-child{background:linear-gradient(90deg,#1fb6c8,#0e86a8);border-color:transparent}
+
+
+/* CERTIFICATIONS */
+#certifications{background:var(--navy)}
+#certifications .s-title{color:var(--white)}
+#certifications .s-label{color:var(--orange-lt)}
+#certifications .s-label::before{background:var(--orange-lt)}
+.cert-wrap{display:grid;grid-template-columns:1.1fr 1fr;gap:2.5rem;align-items:start}
+.cert-main{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.12);border-radius:14px;padding:2rem}
+.cert-org{font-size:.7rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--orange-lt);margin-bottom:.6rem}
+.cert-main h3{font-family:var(--ff-h);font-size:1.5rem;color:#fff;margin-bottom:1.2rem}
+.cert-list{list-style:none;display:grid;gap:.7rem}
+.cert-list li{position:relative;padding-left:1.6rem;color:rgba(255,255,255,.82);font-size:.92rem;line-height:1.6}
+.cert-list li::before{content:"✓";position:absolute;left:0;color:var(--orange-lt);font-weight:700}
+.cert-side{display:grid;gap:1rem}
+.cert-card{display:flex;gap:1rem;align-items:center;background:#fff;border-radius:12px;padding:1rem 1.2rem;box-shadow:0 10px 30px rgba(0,0,0,.25)}
+.cert-ico{flex:none;width:52px;height:52px;border-radius:50%;background:#e8f5ec;border:2px solid #4caf6a;display:flex;align-items:center;justify-content:center;font-size:1.5rem}
+.cert-card b{display:block;font-size:.92rem;color:var(--navy);line-height:1.3}
+.cert-card small{display:block;margin-top:.25rem;font-size:.75rem;color:var(--muted)}
+.cert-ok{display:inline-block;margin-top:.4rem;background:#dff3e5;color:#1d7a3c;font-size:.62rem;font-weight:700;padding:.2em .7em;border-radius:4px;letter-spacing:.05em;text-transform:uppercase}
+
 /* FOOTER */
 footer{background:var(--navy);text-align:center;padding:2.2rem 5%;color:rgba(255,255,255,.35);font-size:.8rem;border-top:3px solid var(--orange)}
 footer strong{color:var(--orange-lt)}
@@ -131,6 +199,12 @@ footer strong{color:var(--orange-lt)}
   .about-grid{grid-template-columns:1fr}
   .exp-grid,.skills-grid{grid-template-columns:1fr}
   .about-desc{grid-column:1}
+  .cert-wrap{grid-template-columns:1fr}
+  .proj,.proj.rev{grid-template-columns:1fr}
+  .proj.rev .proj-info{order:0}
+  .mt-links{display:none}
+  .mt-h{font-size:1.7rem}
+  .proj-feats{grid-template-columns:1fr}
 }
 </style>
 </head>
@@ -142,6 +216,8 @@ footer strong{color:var(--orange-lt)}
     <li><a href="#about" onclick="closeMenu()">Profil</a></li>
     <li><a href="#education" onclick="closeMenu()">Éducation</a></li>
     <li><a href="#experience" onclick="closeMenu()">Expériences</a></li>
+    <li><a href="#projets" onclick="closeMenu()">Projets</a></li>
+    <li><a href="#certifications" onclick="closeMenu()">Certifications</a></li>
     <li><a href="#competences" onclick="closeMenu()">Compétences</a></li>
   </ul>
   <div class="ham" onclick="toggleMenu()"><span></span><span></span><span></span></div>
@@ -259,6 +335,29 @@ footer strong{color:var(--orange-lt)}
         <span class="exp-tag">Réparation PS4</span>
       </div>
     </div>
+    <div class="exp-card rv">
+      <div class="exp-top">
+        <div><div class="exp-company">Mairie de Nouméa</div><div class="exp-role">Stage Technicien</div></div>
+      </div>
+      <div class="exp-tags">
+        <span class="exp-tag">Maintenance</span>
+        <span class="exp-tag">Inventaire</span>
+        <span class="exp-tag">Interventions dans les annexes de la mairie</span>
+      </div>
+    </div>
+    <div class="exp-card rv rv-d2">
+      <div class="exp-top">
+        <div><div class="exp-company">Mairie de Nouméa</div><div class="exp-role">Job d'été</div></div>
+      </div>
+    </div>
+    <div class="exp-card rv rv-d3">
+      <div class="exp-top">
+        <div><div class="exp-company">Lycée Jules Garnier</div><div class="exp-role">Stage</div></div>
+      </div>
+      <div class="exp-tags">
+        <span class="exp-tag">Création d'un site de notation des stagiaires</span>
+      </div>
+    </div>
     <div class="exp-card rv rv-d3" style="grid-column:1/-1">
       <div class="exp-top">
         <div>
@@ -309,6 +408,99 @@ footer strong{color:var(--orange-lt)}
         <span class="exp-tag">Virus informatiques</span>
         <span class="exp-tag">Bonnes pratiques IT</span>
       </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROJETS -->
+<section id="projets">
+  <div class="s-label">Réalisations</div>
+  <h2 class="s-title">Projets</h2>
+  <div class="proj">
+    <div class="rv proj-info">
+      <span class="proj-badge">Projet web · Lycée</span>
+      <h3 class="proj-title">Annonces entre Étudiants</h3>
+      <p class="proj-text">Une plateforme d'annonces réservée aux élèves d'un lycée, dans l'esprit d'un site de petites annonces mais limitée à la communauté du lycée. Chaque étudiant doit créer un compte et se connecter pour acheter, vendre ou s'entraider.</p>
+      <ul class="proj-feats">
+        <li>🛠️ Achat et vente de matériel</li>
+        <li>🚗 Covoiturage pour les sorties</li>
+        <li>🏠 Logement et colocation</li>
+        <li>📚 Aide aux devoirs</li>
+        <li>🔐 Création de compte et connexion</li>
+        <li>🔎 Recherche par catégorie</li>
+      </ul>
+      <div class="exp-tags" style="margin-top:0">
+        <span class="skill-tag">PHP</span><span class="skill-tag">MySQL</span><span class="skill-tag">HTML / CSS</span>
+      </div>
+    </div>
+    <div class="mock rv rv-d2">
+      <div class="mock-bar"><i></i><i></i><i></i><span>Page d'accueil — Annonces entre Étudiants</span></div>
+      <div class="mock-screen">
+        <div class="mock-logo"><b>Annonces entre Étudiants</b><small>Lycée Dick Ukeiwé</small></div>
+        <div class="mock-search"><em>Que recherchez-vous ?</em><u>Rechercher</u></div>
+        <div class="mock-cat-title">Catégories populaires</div>
+        <div class="mock-cats">
+          <div class="mock-cat c1"><span>🎓</span>Services</div>
+          <div class="mock-cat c2"><span>🏠</span>Logement</div>
+          <div class="mock-cat c3"><span>💻</span>Matériel</div>
+          <div class="mock-cat c4"><span>🚗</span>Transport</div>
+        </div>
+        <div class="mock-slogan" style="margin-top:1.4rem">Besoin d'un coup de main ? Trouve-le entre étudiants !</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="proj rev">
+    <div class="rv proj-info">
+      <span class="proj-badge badge-wip">Projet web · En cours · En binôme</span>
+      <h3 class="proj-title">Sud Tourisme</h3>
+      <p class="proj-text">Un site de promotion touristique de la Province Sud de la Nouvelle-Calédonie, réalisé avec un camarade de classe. Il permet de découvrir les paysages et les destinations du Sud, de trouver un hébergement et de suivre les événements du territoire, comme le carnaval. Les visiteurs peuvent aussi s'inscrire et se connecter.</p>
+      <ul class="proj-feats">
+        <li>🏝️ Destinations et paysages</li>
+        <li>🛏️ Hébergements</li>
+        <li>🎉 Événements (carnaval, etc.)</li>
+        <li>🔐 Inscription et connexion</li>
+      </ul>
+    </div>
+    <div class="mock rv rv-d2">
+      <div class="mock-bar"><i></i><i></i><i></i><span>Page d'accueil — Sud Tourisme</span></div>
+      <div class="mock-tour">
+        <div class="mt-nav">
+          <span class="mt-logo">SUD</span>
+          <div class="mt-links"><span>Découvrir</span><span>Destinations</span><span>Hébergements</span><span>Pratique</span></div>
+          <div class="mt-auth"><span>Se connecter</span><span>S'inscrire</span></div>
+        </div>
+        <span class="mt-pill">● PROVINCE SUD · NOUVELLE-CALÉDONIE</span>
+        <div class="mt-h"><b>Le Lagon</b><i>vous attend</i></div>
+        <p class="mt-p">Explorez le patrimoine naturel et culturel exceptionnel de la Province Sud. Récif UNESCO, cultures kanak, et événements inoubliables toute l'année.</p>
+        <div class="mt-btns"><span>Voir les événements →</span><span>Créer un compte</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CERTIFICATIONS -->
+<section id="certifications">
+  <div class="s-label">Formations</div>
+  <h2 class="s-title">Certifications</h2>
+  <div class="cert-wrap">
+    <div class="cert-main rv">
+      <div class="cert-org">Cisco Networking Academy</div>
+      <h3>Introduction à la Cybersécurité</h3>
+      <ul class="cert-list">
+        <li>Reconnaître un virus, ver ou un ransomware</li>
+        <li>Savoir repérer une tentative de phishing ou d'ingénierie sociale</li>
+        <li>Connaître les bons réflexes pour protéger un compte en ligne</li>
+        <li>Comprendre comment une cyberattaque peut impacter une entreprise</li>
+        <li>Adopter un comportement sécurisé au quotidien sur internet</li>
+        <li>Connaître les différents métiers qui existent en cybersécurité</li>
+      </ul>
+    </div>
+    <div class="cert-side rv rv-d2">
+      <div class="cert-card"><div class="cert-ico">🛡️</div><div><b>Introduction à la cybersécurité</b><small>Cisco Networking Academy · Badge vérifié</small><span class="cert-ok">Certificat obtenu</span></div></div>
+      <div class="cert-card"><div class="cert-ico">🖧</div><div><b>Premiers pas avec Cisco Packet Tracer</b><small>Cisco Networking Academy · Publié le 2 avr. 2026</small><span class="cert-ok">Certificat obtenu</span></div></div>
+      <div class="cert-card"><div class="cert-ico">🐞</div><div><b>Analyse des menaces</b><small>Module · Publié le 18 mai 2026</small><span class="cert-ok">Réussi</span></div></div>
+      <div class="cert-card"><div class="cert-ico">🌐</div><div><b>Networking Protocols Basics</b><small>Module Cisco Networking Academy</small></div></div>
     </div>
   </div>
 </section>
