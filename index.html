@@ -107,6 +107,7 @@ section{padding:90px 5%}
 
 /* COMPÉTENCES */
 #competences{background:var(--offwhite)}
+#patrimoine{background:var(--white)}
 .skills-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:1.6rem}
 .skill-cat{background:var(--white);border:1px solid var(--border);border-radius:10px;padding:1.8rem;box-shadow:0 2px 12px rgba(0,0,0,.04)}
 .skill-cat-head{font-size:.92rem;font-weight:700;color:var(--navy);margin-bottom:1.6rem;display:flex;align-items:center;gap:.6rem;padding-bottom:.9rem;border-bottom:2px solid var(--grey)}
@@ -142,6 +143,10 @@ section{padding:90px 5%}
 .mock-slogan{width:100%;margin-top:auto;padding:.8rem 1rem;text-align:center;background:rgba(255,255,255,.7);font-family:var(--ff-h);font-size:.85rem;color:#222}
 
 
+.code-box{margin-top:1.6rem}
+.code-title{font-size:.8rem;font-weight:700;color:var(--navy);margin-bottom:.6rem}
+.code-box pre{background:var(--navy);color:#e6ecf7;border-radius:10px;padding:1.1rem 1.2rem;overflow-x:auto;font-size:.78rem;line-height:1.65;font-family:Consolas,'Courier New',monospace;border-left:3px solid var(--orange)}
+.code-note{margin-top:.7rem;color:var(--text-lt);font-size:.85rem;line-height:1.7}
 .proj+.proj{margin-top:5rem;padding-top:4rem;border-top:1px solid var(--border)}
 .proj.rev{grid-template-columns:1fr 1.1fr}
 .proj.rev .proj-info{order:2}
@@ -219,6 +224,7 @@ footer strong{color:var(--orange-lt)}
     <li><a href="#projets" onclick="closeMenu()">Projets</a></li>
     <li><a href="#certifications" onclick="closeMenu()">Certifications</a></li>
     <li><a href="#competences" onclick="closeMenu()">Compétences</a></li>
+    <li><a href="#patrimoine" onclick="closeMenu()">Patrimoine informatique</a></li>
   </ul>
   <div class="ham" onclick="toggleMenu()"><span></span><span></span><span></span></div>
 </nav>
@@ -432,6 +438,18 @@ footer strong{color:var(--orange-lt)}
       <div class="exp-tags" style="margin-top:0">
         <span class="skill-tag">PHP</span><span class="skill-tag">MySQL</span><span class="skill-tag">HTML / CSS</span>
       </div>
+      <div class="code-box">
+        <div class="code-title">Extrait de code (projet en cours)</div>
+<pre><code>&lt;?php
+$pdo = new PDO(&#x27;mysql:host=localhost;dbname=annonces;charset=utf8&#x27;, &#x27;user&#x27;, &#x27;motdepasse&#x27;);
+
+$resultat = $pdo-&gt;query(&#x27;SELECT titre, prix FROM annonces&#x27;);
+
+foreach ($resultat as $annonce) {
+    echo &#x27;&lt;p&gt;&#x27; . htmlspecialchars($annonce[&#x27;titre&#x27;]) . &#x27; : &#x27; . $annonce[&#x27;prix&#x27;] . &#x27; F&lt;/p&gt;&#x27;;
+}</code></pre>
+        <p class="code-note">Ce code se connecte à la base MySQL, récupère le titre et le prix de chaque annonce, puis les affiche avec une boucle <code>foreach</code>.</p>
+      </div>
     </div>
     <div class="mock rv rv-d2">
       <div class="mock-bar"><i></i><i></i><i></i><span>Page d'accueil — Annonces entre Étudiants</span></div>
@@ -461,6 +479,19 @@ footer strong{color:var(--orange-lt)}
         <li>🎉 Événements (carnaval, etc.)</li>
         <li>🔐 Inscription et connexion</li>
       </ul>
+      <div class="code-box">
+        <div class="code-title">Extrait de code (projet en cours)</div>
+<pre><code>&lt;?php
+$pdo = new PDO(&#x27;mysql:host=localhost;dbname=sudtourisme;charset=utf8&#x27;, &#x27;user&#x27;, &#x27;motdepasse&#x27;);
+
+$resultat = $pdo-&gt;query(&#x27;SELECT nom, description FROM destinations&#x27;);
+
+foreach ($resultat as $lieu) {
+    echo &#x27;&lt;h3&gt;&#x27; . htmlspecialchars($lieu[&#x27;nom&#x27;]) . &#x27;&lt;/h3&gt;&#x27;;
+    echo &#x27;&lt;p&gt;&#x27; . htmlspecialchars($lieu[&#x27;description&#x27;]) . &#x27;&lt;/p&gt;&#x27;;
+}</code></pre>
+        <p class="code-note">Même principe pour les destinations de la Province Sud. <code>htmlspecialchars</code> protège la page si un texte contient du code HTML.</p>
+      </div>
     </div>
     <div class="mock rv rv-d2">
       <div class="mock-bar"><i></i><i></i><i></i><span>Page d'accueil — Sud Tourisme</span></div>
@@ -543,6 +574,45 @@ footer strong{color:var(--orange-lt)}
   </div>
 </section>
 
+
+<!-- PATRIMOINE INFORMATIQUE -->
+<section id="patrimoine">
+  <div class="s-label">Gérer le patrimoine informatique</div>
+  <h2 class="s-title">Patrimoine informatique</h2>
+  <div class="skills-grid">
+    <div class="skill-cat rv">
+      <div class="skill-cat-head">🖥️ Matériel, maintenance et inventaire</div>
+      <div class="skill-tags">
+        <span class="skill-tag">Ordinateurs</span>
+        <span class="skill-tag">Imprimantes</span>
+        <span class="skill-tag">Écrans</span>
+        <span class="skill-tag">Périphériques (clavier, souris)</span>
+        <span class="skill-tag">Consoles PS4</span>
+        <span class="skill-tag">Maintenance PC</span>
+        <span class="skill-tag">Inventaire – Mairie de Nouméa</span>
+        <span class="skill-tag">Inventaire – Renew PC</span>
+        <span class="skill-tag">Interventions dans les annexes</span>
+      </div>
+    </div>
+    <div class="skill-cat rv rv-d1">
+      <div class="skill-cat-head">🧰 Logiciels et environnement de travail</div>
+      <div class="skill-tags">
+        <span class="skill-tag">Visual Studio Code</span>
+        <span class="skill-tag">VirtualBox</span>
+        <span class="skill-tag">Cisco Packet Tracer</span>
+        <span class="skill-tag">Pack Office 365</span>
+      </div>
+    </div>
+    <div class="skill-cat rv rv-d2">
+      <div class="skill-cat-head">🌐 Technologies web utilisées</div>
+      <div class="skill-tags">
+        <span class="skill-tag">PHP</span>
+        <span class="skill-tag">MySQL</span>
+        <span class="skill-tag">HTML / CSS</span>
+      </div>
+    </div>
+  </div>
+</section>
 
 <footer>
   <p>© 2025 <strong>Mayron Dyeo</strong> · BTS SIO · Nouvelle-Calédonie 🇳🇨</p>
